@@ -1,89 +1,77 @@
+//var j = JSON.parse(s);
 
 
-@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
 
 
-#logo{
-  float: left;
+
+
+// Hover Dropown effect:
+const $dropdown = $(".dropdown");
+const $dropdownToggle = $(".dropdown-toggle");
+const $dropdownMenu = $(".dropdown-menu");
+const showClass = "show";
+
+$(window).on("load resize", function () {
+    if (this.matchMedia("(min-width: 768px)").matches) {
+        $dropdown.hover(
+            function () {
+                const $this = $(this);
+                $this.addClass(showClass);
+                $this.find($dropdownToggle).attr("aria-expanded", "true");
+                $this.find($dropdownMenu).addClass(showClass);
+            },
+            function () {
+                const $this = $(this);
+                $this.removeClass(showClass);
+                $this.find($dropdownToggle).attr("aria-expanded", "false");
+                $this.find($dropdownMenu).removeClass(showClass);
+            }
+        );
+    } else {
+        $dropdown.off("mouseenter mouseleave");
+    }
+});
+
+// Parse JSON
+var data = '{"titulo": "Bienvenido", "content": "hola Bienvenido a mi pagina", "tituloNovedades": "Ultimas noticias", "contentNovedades": "novedades novedades novedades novedades"}';
+
+var json = JSON.parse(data);
+
+var hTitulo, pContent, hTituloNovedades, pContentNovedades;
+
+hTitulo = document.getElementById("titulo_contenido").innerHTML = json.titulo;
+pContent = document.getElementById("content").innerHTML = json.content;
+hTituloNovedades = document.getElementById("tituloNovedades").innerHTML = json.tituloNovedades;
+pContentNovedades = document.getElementById("contentNovedades").innerHTML = json.contentNovedades;
+
+
+
+
+// On hover funtions
+function mouseOver(position) {
+    var x = document.getElementsByClassName("novedad");
+    x[position].style.background = "#bdbfbd";
 }
 
-#profile{
-  float: right;
-  right: 50px;
-  width: 300px;
-  height: 80px;
-  border: 3px solid black;
-
-}
-#title{
-  position: relative;
-  margin-top: 20px;
-  font-family: 'Architects Daughter', cursive;
-  font-size: 50px
-}
-
-#title-background{
-  background-color: #cfcdcc ;
-  margin-bottom: 25px;  
-
-
-
-}
-
-#navebar{
-  background-color: #F15050;
-  margin-right: 50px;
-  
-  padding-left: 100px;
-
-
-}
-#navbarElement{
-  margin: 10px;
-  background-color: #48CAF5;
-  border-radius: 5px;;
-  font-weight: bold;
-  font-size: 20px;
+function mouseOut(position) {
+  var x = document.getElementsByClassName("novedad");
+  x[position].style.background = "white";
 }
 
 
-#user-img{
-height: 80px;
-width: 80px;
-float: left;
+// On click para mostras el contenido en el menu principal
+function showNovedad(tituloAnyadir,contenidoAnyadir){
+  var tituloContent = document.getElementById("titulo_contenido");
+  var contenidoPrincipal = document.getElementById("content");
 
-}
-#navElements{
-  margin-left: 0;
-
-}
-
-#contenidoPrincipal{
-  display: block;
-  border: 2px solid #555;
-  margin-top: 20px;
-  padding-bottom: 550px;
-  width: 60%;
-  padding: 10px;
-  padding-bottom: 400px;
-}
-
-#contenidoNovedades{
-  display: block;
-  border: 2px solid #555;
-  position: absolute;
-  left: 0;
-  height: 300px;
-  width: 350px;
-  margin-top: 20px;
-  margin-left: 10px;
-
-}
-
-.novedad{
-  border: 2px solid #555;
-  margin-top: 10px;
-  padding: 5px;
+  tituloContent.innerHTML = tituloAnyadir;
+  contenidoPrincipal.innerHTML = contenidoAnyadir;
 
 
 }
+var f = new Files('data.js');
+
+f.read(function (data) {
+    consule.log("Data:" + data.key);
+
+});
