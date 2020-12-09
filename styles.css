@@ -2,18 +2,29 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
 
+
 #logo{
   float: left;
 }
+
+#profile{
+  float: right;
+  right: 50px;
+  width: 300px;
+  height: 80px;
+  border: 3px solid black;
+
+}
 #title{
+  position: relative;
   margin-top: 20px;
   font-family: 'Architects Daughter', cursive;
   font-size: 50px
 }
 
 #title-background{
-  background-color: #cfcdcc;
-  margin-bottom: 25px;
+  background-color: #cfcdcc ;
+  margin-bottom: 25px;  
 
 
 
@@ -22,12 +33,12 @@
 #navebar{
   background-color: #F15050;
   margin-right: 50px;
-  padding-left: 0px;
+  
+  padding-left: 100px;
 
 
 }
 #navbarElement{
-  color: white;
   margin: 10px;
   background-color: #48CAF5;
   border-radius: 5px;;
@@ -35,16 +46,6 @@
   font-size: 20px;
 }
 
-#profile{
-  position: absolute;
-  right: 50px;
-  width: 300px;
-  height: 80px;
-  border: 3px solid black;
-
-
-
-}
 
 #user-img{
 height: 80px;
@@ -58,7 +59,7 @@ float: left;
 }
 
 #contenidoPrincipal{
-  display: block;
+  display: inline-block;
   border: 2px solid #555;
   margin-top: 20px;
   padding-bottom: 550px;
@@ -68,14 +69,17 @@ float: left;
 }
 
 #contenidoNovedades{
+
   display: block;
   border: 2px solid #555;
-  position: absolute;
+  float: left;
   left: 0;
   height: 300px;
   width: 350px;
   margin-top: 20px;
   margin-left: 10px;
+  margin-right: 10px;
+
 
 }
 
